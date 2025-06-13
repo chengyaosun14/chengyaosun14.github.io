@@ -41,9 +41,6 @@
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
 
     ul {
       margin-top: 0;        /* removes space above the list */
@@ -61,7 +58,7 @@
     .abstract-toggle { /* Setting up the abstract buttons */
       color: #0645AD;
       cursor: pointer;
-      text-decoration: underline;
+      text-decoration: none;
       font-size: 0.95em;
       background: none;
       border: none;
@@ -108,8 +105,10 @@
       </p>
       </div>
       <ul>
-      <li><a href="https://osf.io/3xu89/?view_only=bbeb19d834aa47d89f745083b0aed664" target="_blank">Web Appendix</a> </li>
-      <li><a href="https://osf.io/3xu89/?view_only=bbeb19d834aa47d89f745083b0aed664" target="_blank">Data & Materials</a> </li>
+      <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4494708" target="_blank">PDF</a> |
+          <a href="https://osf.io/3xu89/?view_only=bbeb19d834aa47d89f745083b0aed664" target="_blank">Web Appendix</a> | 
+          <a href="https://osf.io/3xu89/?view_only=bbeb19d834aa47d89f745083b0aed664" target="_blank">Data & Materials</a>
+      </li>
     </ul>
     </p>
   </section>
@@ -118,5 +117,16 @@
     &copy; 2025 Chengyao Sun
   </footer>
 
+
+<!-- For the abstract button -->
+  <script>
+  function toggleAbstract(btn) {
+    const abstract = btn.nextElementSibling;
+    const isVisible = abstract.style.display === "block";
+    abstract.style.display = isVisible ? "none" : "block";
+    btn.textContent = isVisible ? "Abstract" : "Hide Abstract";
+  }
+    
+</script>
 </body>
 </html>
