@@ -193,17 +193,18 @@ default effects from sufficient evidence.
 <!-- For the abstract button -->
 <script>
   function toggleAbstract(button) {
-    // Traverse DOM to find the next .abstract-text sibling after this button
-    let abstract = button.closest("li")?.nextElementSibling;
-    
-    // In case it's not a sibling, scan forward in the DOM for nearest .abstract-text
-    while (abstract && !abstract.classList.contains("abstract-text")) {
-      abstract = abstract.nextElementSibling;
+    // Start at the <li> that contains the button
+    let li = button.closest("li");
+    let next = li?.nextElementSibling;
+
+    // Find the next .abstract-text sibling
+    while (next && !next.classList.contains("abstract-text")) {
+      next = next.nextElementSibling;
     }
 
-    if (abstract) {
-      const isVisible = abstract.style.display === "block";
-      abstract.style.display = isVisible ? "none" : "block";
+    if (next) {
+      const isVisible = next.style.display === "block";
+      next.style.display = isVisible ? "none" : "block";
       button.textContent = isVisible ? "Abstract" : "Hide Abstract";
     }
   }
