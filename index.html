@@ -1,110 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chengyao Sun</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    * { box-sizing: border-box; }
     body {
-      margin: 0; padding: 1em;
-      font-family: Georgia, serif;
-      background: #fdfdfd; color: #111;
-      max-width: 800px; margin: 2em auto;
-      line-height: 1.5;
-    }
-    header { text-align: center; margin-bottom: 2em; }
-    header img {
-      width: 150px; border-radius: 50%; margin-bottom: 1em;
-    }
-    header h1 { margin: 0.2em 0; font-size: 2em; color: #222; }
-    header p { margin: 0; font-style: italic; color: #555; }
-    .links a {
-      margin: 0 0.5em; color: #0645AD; text-decoration: none;
-    }
-    section + section { margin-top: 2em; }
-    h2 { margin-bottom: .5em; font-size: 1.3em; border-bottom: 1px solid #ccc; padding-bottom: .2em; }
-    ul { padding-left: 1em; }
-    .paper {
-      margin-bottom: 1em;
-    }
-    .paper button {
-      background: none;
-      border: none;
-      color: #0645AD;
-      font: inherit;
-      cursor: pointer;
+      font-family: sans-serif;
+      margin: 0;
       padding: 0;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
     }
-    .paper .abstract { display: none; margin-top: .5em; }
-    footer { text-align: center; margin-top: 3em; font-size: .9em; color: #666; }
+    header {
+      background: steelblue;
+      color: white;
+      padding: 2em;
+      text-align: center;
+    }
+    nav {
+      text-align: center;
+      margin-top: 1em;
+    }
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: steelblue;
+      font-weight: bold;
+    }
+    section {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 1em;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      margin: 3em 0;
+      color: #888;
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <!-- Upload your photo as profile.jpg to repo -->
-    <img src="profile.jpg" alt="Chengyao Sun">
-    <h1>Chengyao Sun</h1>
-    <p>Postdoctoral Researcher · Consumer Behavior & Decision Making · Yale SOM</p>
-    <p class="links">
-      <a href="cv.pdf" target="_blank">CV</a> |
-      <a href="https://ssrn.com/author=#######" target="_blank">SSRN</a> |
-      <a href="https://scholar.google.com/citations?user=Hl0GpIIAAAAJ" target="_blank">Google Scholar</a>
-    </p>
-    <p>Email: <a href="mailto:chengyao.sun@yale.edu">chengyao.sun@yale.edu</a></p>
-  </header>
+<header>
+  <h1>Chengyao Sun</h1>
+  <p>Welcome to my personal website</p>
+</header>
 
-  <section id="overview">
-    <h2>Research Overview</h2>
-    <p>I am a postdoc at Yale School of Management studying consumer heuristics, financial decision-making, and risk & uncertainty :contentReference[oaicite:1]{index=1}.</p>
-  </section>
+<nav>
+  <a href="#about">About</a>
+</nav>
 
-  <section id="pubs">
-    <h2>Published Papers</h2>
-    <div class="paper">
-      <strong>Sun & LeBoeuf (2025)</strong>: Prediction that conflicts with judgment: The low absolute likelihood effect (<em>JEP: General</em>).
-    </div>
-    <div class="paper">
-      <strong>Jung, Sun & Nelson (2018)</strong>: People can recognize, learn, and apply default effects in social influence (<em>PNAS</em>).
-    </div>
-  </section>
+<section id="about">
+  <h2>About Me</h2>
+  <p>I am a postdoc at Yale School of Management studying consumer heuristics, financial decision-making, and risk & uncertainty </p>
+</section>
 
-  <section id="working">
-    <h2>Working Papers</h2>
-    <ul>
-      <li><strong>Sun, Cryder & Rick</strong>: A co‑branding conundrum: people underuse co‑branded credit cards.</li>
-      <li><strong>Sun, Wang & Novemsky</strong>: Experiences require appraisal to overcome expectations.</li>
-      <li>... (other projects) ...</li>
-    </ul>
-  </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:chengyao.sun@yale.edu">chengyao.sun@yale.edu</a></p>
-  </section>
-
-  <footer>
-    &copy; 2025 Chengyao Sun
-  </footer>
-
-  <script>
-    document.querySelectorAll('.paper').forEach(div => {
-      let btn = document.createElement('button');
-      btn.textContent = 'Abstract';
-      btn.onclick = () => {
-        let abs = div.querySelector('.abstract');
-        abs.style.display = abs.style.display === 'block' ? 'none' : 'block';
-        btn.textContent = abs.style.display === 'block' ? 'Hide Abstract' : 'Abstract';
-      };
-      div.appendChild(btn);
-      // You can insert actual abstracts here:
-      let absDiv = document.createElement('div');
-      absDiv.className = 'abstract';
-      absDiv.textContent = 'Abstract goes here…';
-      div.appendChild(absDiv);
-    });
-  </script>
+<footer>
+  <p>© 2025 Chengyao Sun</p>
+</footer>
 
 </body>
 </html>
