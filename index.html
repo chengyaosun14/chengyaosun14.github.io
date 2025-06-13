@@ -57,6 +57,22 @@
       color: #666;
       text-align: center;
     }
+
+    .abstract-toggle { /* Setting up the abstract buttons */
+      color: #0645AD;
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 0.95em;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: inherit;
+    }
+
+    .abstract-text {
+      display: none;
+      margin-top: 0.5em;
+    }
   </style>
 </head>
 <body>
@@ -78,8 +94,19 @@
     <p style="margin-bottom: 0;">
       Sun, C., Cryder, C. & Rick, S. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4494708" target="_blank"> 
       A co-branding conundrum: People underuse co-branded credit cards outside their featured brands.</a> 
-      <em>Under second review at the Journal of Marketing Research</em>
-      <br><strong>(New draft with credit card statement data)</strong>.
+      <em>Under second review at the Journal of Marketing Research.</em>
+      <br><strong>(New draft with credit card statement data)</strong>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
+      <div class="abstract-text">
+      <p>Co-branded credit cards that are backed by a payment-processing network such as Visa can be used anywhere the payment network is accepted. 
+        In this research, however, we find that consumers often use co-branded credit cards in a restricted manner. Using data from credit card statements and scenario experiments, 
+        we show that consumers are less willing to use a reward-maximizing credit card if it is co-branded with a merchant brand that does not fit with the purchase brand. 
+        We identify two mechanisms. First, the featured brand on a co-branded credit card produces assumptions about the card’s reward structure, 
+        and those assumptions limit consumers’ attention to the actual reward structure. Second, the featured brand on a co-branded credit card leads some purchases outside of the featured brand to feel like a bad “fit.” 
+        Co-branded credit cards represent a significant share of credit card companies’ product offerings. This research sheds light on when and why consumers are reluctant to use co-branded credit cards broadly, 
+        offering managerial insights that could help credit card companies refine their strategies for co-branded products as well as help consumers maximize their credit card rewards.
+      </p>
+      </div>
       <ul>
       <li><a href="https://osf.io/3xu89/?view_only=bbeb19d834aa47d89f745083b0aed664" target="_blank">Web Appendix</a> </li>
       <li><a href="https://osf.io/3xu89/?view_only=bbeb19d834aa47d89f745083b0aed664" target="_blank">Data & Materials</a> </li>
