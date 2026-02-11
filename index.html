@@ -64,10 +64,26 @@
   font: inherit;
 }
 
+/*Topleft corner logo*/
+
     .abstract-text {
       display: none;
       margin-top: 0.5em;
     }
+    
+      .site-logo-wrap{
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+  }
+
+  .site-logo{
+    width: clamp(48px, 15vw, 140px);
+    height: auto;
+    display: block;
+  }
+    
   </style>
   
   
@@ -86,6 +102,11 @@
   
 </head>
 <body>
+  <!-- Topleft body logo -->
+  
+  <a class="site-logo-wrap" href="/" aria-label="Home">
+    <img src="yaleSOM-logo.jpg" alt="Logo" class="site-logo">
+  </a>
 
 <section id="about" style="display: flex; align-items: center; gap: 3em;">
   <div>
@@ -302,21 +323,9 @@ default effects from sufficient evidence.
       <a href="FO-poster.pdf" target="_blank">Poster</a>
     </li>
   </ul>
-  
-<section id="in-progress">
-  <h2>Research in progress</h2>
-   
-  <p style="margin-bottom: 0; margin-top: 2em;">
-    Sun, C., Rick, S., & Cryder, C.
-    Spreading debt across credit cards: Understanding a costly coping mechanism.
-    </a> 
-    <em>In progress.</em><br>
-  </p> 
-
-</section>  
 
   <footer>
-    &copy; 2025 Chengyao Sun
+    &copy; 2026 Chengyao Sun
   </footer>
 
 
