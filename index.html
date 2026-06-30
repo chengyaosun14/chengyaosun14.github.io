@@ -16,9 +16,14 @@
 
     body {
       font-size: 16px; /* default text size */
+      margin: 0;
+      padding: 0;
+    }
+
+    .page-content {
       max-width: 1000px;
-      margin: 4em auto;
-      padding: 0 1em;
+      margin: 0 auto;
+      padding: 7em 1em 0; /* top padding prevents the fixed banner from covering content */
     }
 
     h1 {
@@ -37,7 +42,7 @@
     }
 
     a {
-      color: #0645AD;
+      color: #4E2A84;
       text-decoration: none;
     }
 
@@ -56,7 +61,7 @@
     }
 
     .abstract-toggle {
-  color: #0645AD;
+  color: #4E2A84;
   cursor: pointer;
   background: none;
   border: none;
@@ -64,25 +69,33 @@
   font: inherit;
 }
 
-/*Topleft corner logo*/
+/* Sticky top banner */
 
     .abstract-text {
       display: none;
       margin-top: 0.5em;
     }
-    
-      .site-logo-wrap{
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    z-index: 1000;
-  }
 
-  .site-logo{
-    width: clamp(48px, 15vw, 140px);
-    height: auto;
-    display: block;
-  }
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5em;
+      background: #fdfdfd;
+      border-bottom: 1px solid #e6e6e6;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      padding: 0 1.5em;
+      box-sizing: border-box;
+    }
+
+    .site-logo {
+      width: clamp(90px, 14vw, 200px);
+      height: auto;
+      display: block;
+    }
     
   </style>
   
@@ -92,21 +105,24 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "url": "https://chengyaosun14.github.io/",
-  "logo": "https://chengyaosun14.github.io/yale-logo2.png",
+  "logo": "https://chengyaosun14.github.io/kellogg.png",
   "name": "Chengyao Sun"
 }
 </script>
 
-<link rel="icon" type="image/png" href="yale-logo2.png">
+<link rel="icon" type="image/png" href="kellogg.png">
   
   
 </head>
 <body>
-  <!-- Topleft body logo -->
-  
-  <a class="site-logo-wrap" href="/" aria-label="Home">
-    <img src="yaleSOM-logo.jpg" alt="Logo" class="site-logo">
-  </a>
+  <!-- Sticky top banner -->
+  <header class="site-header">
+    <a href="/" aria-label="Home">
+      <img src="kellogg.png" alt="Kellogg logo" class="site-logo">
+    </a>
+  </header>
+
+  <main class="page-content">
 
 <section id="about" style="display: flex; align-items: center; gap: 3em;">
   <div>
@@ -115,15 +131,15 @@
   <div style="flex: 1;">
     <h1>Chengyao Sun</h1>
     <p>
-      I am a behavioral scientist working on decision-making in consumer finance and, more broadly, in contexts involving risk and uncertainty.
+      I study behavioral decision-making in consumer finance and more broadly, in contexts involving risk and uncertainty.
       </p>
       
       <p>
-      I will be joining Northwestern Kellogg as an Assistant Professor of Marketing in July 2026.
+      I am Assistant Professor of Marketing at Northwestern University Kellogg School of Management.
       </p>
     
     <p>
-      Email: <span style="color: #0645AD;">chengyao.sun@yale.edu</span>
+      Email: <span style="color: #4E2A84;">chengyao.sun@kellogg.northwestern.edu</span>
     </p>
     
     <p><strong>
@@ -140,7 +156,6 @@
 <section id="papers">
   <h2 style="margin-bottom: 0;">Publications & invited revision</h2>
   <p style="margin-top: 0; margin-bottom: 2em;">
-    (* denotes equal contribution)
   </p>
   
   <p style="margin-bottom: 0;">
@@ -207,7 +222,7 @@
 
 
   <p style="margin-top: 2em; margin-bottom: 0;">
-    *Jung, M. H., *Sun C., & Nelson, L. D. (2018). 
+    Jung, M. H., Sun C., & Nelson, L. D. (2018). 
     <a href="https://doi.org/10.1073/pnas.1810986115" target="_blank"> 
       People can recognize, learn, and apply default effects in social influence.
     </a> 
@@ -282,7 +297,7 @@ default effects from sufficient evidence.
   
   <p style="margin-bottom: 0; margin-top: 2em;">
     Voichek, G., Sun, C., & Novemsky, N. 
-      When losing feels better than it should: Experience and anticipation in gambling.
+      Gambling Reverses Loss Aversion.
     <em>Working paper.</em><br>
   </p>
   
@@ -294,19 +309,14 @@ default effects from sufficient evidence.
 
   <div class="abstract-text">
     <p>
-      Sports betting grows rapidly in the U.S. However, the wide appeal of sports gambling seems at odds with loss aversion. 
-      Why do people persist in sports gambling? This article offers a novel explanation from the perspective of losing. 
-      Previous research discusses gambling losses and wins as the outcome per se and thus admits that losing a gamble must be painful. 
-      In this article, we make a distinction between the hedonic experience during the sports betting process that resolve the outcome 
-      over time and the hedonic impact of the outcome of gamble. We show how these two experiences combine to generate an asymmetric 
-      hedonic effect so that losing is less painful than winning is pleasurable. Drawing evidence from real sports betting (Super Bowl) 
-      and controlled experiments, we show that the bet-resolving process, such as watching a game unroll, produces positive hedonic impact 
-      that buffers the pain of losing but will not reduce the positive feelings of winning, resulting in the hedonic asymmetry 
-      that reverses loss aversion, which focuses only on the outcomes. Although people who lack gambling experience may not anticipate 
-      the positive hedonic impact of the gambling process, we find that more experienced gamblers might better recollect their
-      positive feelings during the gamble and thus better incorporate such positive impact when anticipating their feelings about losing. 
-      As a result, gambling may lack the negative hedonic impact necessary for people to learn to avoid it if that process blunts the 
-      negative feelings that would otherwise be associated with losing.
+      What makes sports gambling a slippery slope? Across six studies involving real-world and laboratory gambling, 
+      we show that gambling reshapes how consumers forecast the hedonic consequences of future gambles. 
+      Consumers who did not gamble recently expect losses to feel more painful than equivalently sized wins will feel good, 
+      consistent with loss aversion. With recent sports gambling experience, however, people come to expect the opposite: 
+      that wins will feel better than losses will feel bad. 
+      This reversal occurs because gambling experience shifts attention from outcomes (winning or losing) to how it feels to watch the game, 
+      such that consumers expect the enjoyment during the game to buffer the pain of an eventual loss. 
+      This weakening of the deterrent role of losses may explain the persistence of sports betting.
     </p>
   </div>
   
@@ -324,9 +334,13 @@ default effects from sufficient evidence.
     </li>
   </ul>
 
+</section>
+
   <footer>
     &copy; 2026 Chengyao Sun
   </footer>
+
+  </main>
 
 
 <!-- For the abstract button -->
