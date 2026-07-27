@@ -4,31 +4,53 @@
   <meta charset="UTF-8">
   <title>Chengyao Sun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fdfdfd">
   <style>
+    :root {
+      --kellogg-purple: #4E2A84;
+      --page-background: #fdfdfd;
+      --header-height: 5rem;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
     html {
       font-family: Calibri, Arial, sans-serif;
-      background-color: #fdfdfd;
+      background-color: var(--page-background);
       color: #111;
       line-height: 1.6;
       margin: 0;
       padding: 0;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body {
-      font-size: 16px; /* default text size */
+      font-size: 16px;
       margin: 0;
-      padding: 0;
+      padding: 0 0 env(safe-area-inset-bottom);
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
     }
 
     .page-content {
-      max-width: 1000px;
+      width: min(100%, 1000px);
       margin: 0 auto;
-      padding: 7em 1em 0; /* top padding prevents the fixed banner from covering content */
+      padding: calc(var(--header-height) + 2rem) clamp(1rem, 4vw, 2rem) 0;
     }
 
     h1 {
       font-size: 36px;
       font-weight: normal;
+      line-height: 1.2;
       margin-top: 1.5em;
       color: #222;
     }
@@ -36,67 +58,234 @@
     h2 {
       font-size: 18px;
       font-weight: bold;
+      line-height: 1.35;
       margin-top: 1.5em;
-      color: #222;
       margin-bottom: 0.2em;
+      color: #222;
+    }
+
+    p,
+    li,
+    .email-address {
+      overflow-wrap: anywhere;
     }
 
     a {
-      color: #4E2A84;
+      color: var(--kellogg-purple);
       text-decoration: none;
     }
 
+    a:focus-visible,
+    .abstract-toggle:focus-visible {
+      outline: 3px solid rgba(78, 42, 132, 0.35);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
 
     ul {
-      margin-top: 0;        /* removes space above the list */
-      padding-left: 0;      /* removes indentation */
-      list-style-position: inside;  /* optional: moves bullets inside */
+      margin-top: 0;
+      padding-left: 0;
+      list-style-position: inside;
+    }
+
+    li {
+      line-height: 1.8;
     }
 
     footer {
       margin-top: 3em;
+      padding-bottom: 1.5rem;
       font-size: 0.9em;
       color: #666;
       text-align: center;
     }
 
     .abstract-toggle {
-  color: #4E2A84;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  font: inherit;
-}
-
-/* Sticky top banner */
+      color: var(--kellogg-purple);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0.15rem 0;
+      font: inherit;
+      touch-action: manipulation;
+    }
 
     .abstract-text {
       display: none;
       margin-top: 0.5em;
     }
 
+    /* Sticky top banner */
     .site-header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 5em;
-      background: #fdfdfd;
+      height: var(--header-height);
+      background: var(--page-background);
       border-bottom: 1px solid #e6e6e6;
       z-index: 1000;
       display: flex;
       align-items: center;
-      padding: 0 1.5em;
-      box-sizing: border-box;
+      padding: 0 max(1.5rem, env(safe-area-inset-right)) 0 max(1.5rem, env(safe-area-inset-left));
+    }
+
+    .site-header > a {
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
     }
 
     .site-logo {
       width: clamp(90px, 14vw, 200px);
-      height: auto;
+      max-height: calc(var(--header-height) - 1.25rem);
+      object-fit: contain;
       display: block;
     }
-    
+
+    /* Profile block */
+    .about-section {
+      display: flex;
+      align-items: center;
+      gap: 3em;
+    }
+
+    .about-photo-wrap {
+      flex: 0 0 auto;
+    }
+
+    .about-photo {
+      display: block;
+      width: 300px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-top: 3em;
+    }
+
+    .about-copy {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .email-address {
+      color: var(--kellogg-purple);
+    }
+
+    .section-spacer {
+      margin-top: 6em;
+    }
+
+    #papers,
+    #in-progress {
+      scroll-margin-top: calc(var(--header-height) + 1rem);
+    }
+
+    /* Tablet and phone layout */
+    @media (max-width: 720px) {
+      :root {
+        --header-height: 4.25rem;
+      }
+
+      .site-header {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+      }
+
+      .site-logo {
+        width: min(160px, 48vw);
+        max-height: calc(var(--header-height) - 1rem);
+      }
+
+      .page-content {
+        padding-top: calc(var(--header-height) + 1.25rem);
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+      }
+
+      .about-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+      }
+
+      .about-photo {
+        width: min(230px, 68vw);
+        margin-top: 0.5rem;
+      }
+
+      .about-copy {
+        width: 100%;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 9vw, 2.25rem);
+        text-align: center;
+      }
+
+      .profile-links {
+        text-align: center;
+      }
+
+      .section-spacer {
+        margin-top: 3.5rem;
+      }
+
+      h2 {
+        margin-top: 2rem;
+      }
+
+      ul {
+        margin-bottom: 1.25rem;
+      }
+
+      .abstract-text {
+        margin-top: 0.25rem;
+      }
+    }
+
+    /* Extra-small phones */
+    @media (max-width: 420px) {
+      :root {
+        --header-height: 3.9rem;
+      }
+
+      .site-logo {
+        width: min(145px, 50vw);
+      }
+
+      .page-content {
+        padding-top: calc(var(--header-height) + 1rem);
+        padding-left: max(0.85rem, env(safe-area-inset-left));
+        padding-right: max(0.85rem, env(safe-area-inset-right));
+      }
+
+      .about-photo {
+        width: min(205px, 66vw);
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .section-spacer {
+        margin-top: 3rem;
+      }
+    }
+
+    @media (hover: hover) {
+      a:hover,
+      .abstract-toggle:hover {
+        text-decoration: underline;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
   </style>
   
   
@@ -124,22 +313,22 @@
 
   <main class="page-content">
 
-<section id="about" style="display: flex; align-items: center; gap: 3em;">
-  <div>
-    <img src="headshot2.png" alt="Chengyao Sun headshot" style="width: 300px; border-radius: 50%; margin-top: 3em;">
+<section id="about" class="about-section">
+  <div class="about-photo-wrap">
+    <img src="headshot2.png" alt="Chengyao Sun headshot" class="about-photo">
   </div>
-  <div style="flex: 1;">
+  <div class="about-copy">
     <h1>Chengyao Sun</h1>
     <p>
        I am Assistant Professor of Marketing at Northwestern University Kellogg School of Management.
        I study behavioral decision-making in consumer finance and more broadly, in contexts involving risk and uncertainty.
-      </p>
+    </p>
 
     <p>
-      Email: <span style="color: #4E2A84;">chengyao.sun@kellogg.northwestern.edu</span>
+      Email: <span class="email-address">chengyao.sun@kellogg.northwestern.edu</span>
     </p>
     
-    <p><strong>
+    <p class="profile-links"><strong>
       <a href="CV.pdf" target="_blank">CV</a> · 
       <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3581053" target="_blank">SSRN</a> · 
       <a href="https://scholar.google.com/citations?user=Hl0GpIIAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
@@ -148,7 +337,7 @@
   </div>
 </section>
 
-  <div style="margin-top: 6em;"></div> <!-- adds blank space -->
+  <div class="section-spacer" aria-hidden="true"></div>
 
 <section id="papers">
   <h2 style="margin-bottom: 0;">Publications & invited revision</h2>
@@ -166,7 +355,7 @@
 
   <ul>
     <li>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button> |
+      <button type="button" class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">Abstract</button> |
       <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4494708" target="_blank">PDF</a> |
       <a href="https://osf.io/3xu89/?view_only=bbeb19d834aa47d89f745083b0aed664" target="_blank">Web Appendix</a> |
       <a href="https://osf.io/3xu89/?view_only=bbeb19d834aa47d89f745083b0aed664" target="_blank">Data & Materials</a>
@@ -195,7 +384,7 @@
 
   <ul>
     <li>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button> |
+      <button type="button" class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">Abstract</button> |
       <a href="https://doi.org/10.1037/xge0001721" target="_blank">DOI</a> |
       <a href="prediction-paper.pdf" target="_blank">PDF</a> |
       <a href="https://doi.org/10.1037/xge0001721.supp" target="_blank">Web Appendix</a> |
@@ -228,7 +417,7 @@
 
   <ul>
     <li>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button> |
+      <button type="button" class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">Abstract</button> |
       <a href="https://doi.org/10.1073/pnas.1810986115" target="_blank">DOI</a> |
       <a href="https://www.pnas.org/doi/epdf/10.1073/pnas.1810986115" target="_blank">PDF</a> |
       <a href="https://osf.io/pq9hb/files/osfstorage" target="_blank">Web Appendix</a> |
@@ -268,7 +457,7 @@ default effects from sufficient evidence.
 
   <ul>
     <li>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button> |
+      <button type="button" class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">Abstract</button> |
       <a href="hedonic-updating.pdf" target="_blank">PDF</a> |
       <a href="https://osf.io/fk5hd/files/osfstorage?view_only=edc69d836e2a41c8800db3ca4beea6e4" target="_blank">Data & Materials</a>
     </li>
@@ -300,7 +489,7 @@ default effects from sufficient evidence.
   
   <ul>
     <li>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
+      <button type="button" class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">Abstract</button>
     </li>
   </ul>
 
@@ -343,21 +532,22 @@ default effects from sufficient evidence.
 <!-- For the abstract button -->
 <script>
   function toggleAbstract(button) {
-    // Get the <ul> element that contains this button
+    // Get the <ul> element that contains this button.
     const ul = button.closest("ul");
     if (!ul) return;
 
-    // Look for the next .abstract-text div after <ul>
+    // Find the abstract immediately following this paper's link list.
     let next = ul.nextElementSibling;
     while (next && !next.classList.contains("abstract-text")) {
       next = next.nextElementSibling;
     }
 
-    if (next) {
-      const isVisible = next.style.display === "block";
-      next.style.display = isVisible ? "none" : "block";
-      button.textContent = isVisible ? "Abstract" : "Hide Abstract";
-    }
+    if (!next) return;
+
+    const isVisible = next.style.display === "block";
+    next.style.display = isVisible ? "none" : "block";
+    button.textContent = isVisible ? "Abstract" : "Hide Abstract";
+    button.setAttribute("aria-expanded", String(!isVisible));
   }
 </script>
 </body>
